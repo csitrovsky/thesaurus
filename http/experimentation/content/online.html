@@ -1,0 +1,234 @@
+<div class="container">
+    <div class="row custom-row" display="block">
+
+        <div class="root">
+
+            <div class="app-layout" width="small">
+                <div class="app-costomers flex-box" flex-direction="column" flex-wrap="nowrap" bg-color="white">
+                    <div class="app-dashboard">
+                        <div class="dashboard flex-box">
+
+                            <div class="experimentation">
+                                <div class="experimentation-wrapper">
+
+                                    <form id="start" class="experimentation-start" action="" method="post" style="position: relative;">
+                                        <div>
+                                            <div class="experimentation-description" style="margin-bottom: 16px;">
+                                                <div class="experimentation-title">
+                                                    <h2><span>Эксперимент онлайн</span></h2>
+                                                </div>
+                                                <p class="experimentation-description" style="margin-bottom: 16px;">Вам необходимо <a href="/account/create" class="link" style="height: auto;"><span class="outer-link" display="inline" color="dark-blue">войдите в свою учетную запись</span></a>, чтобы начать проходить эксперимент.</p>
+                                                <p class="experimentation-description">Также, вы можете анонимно пройти эксперимент.</p>
+                                            </div>
+                                            <div class="experimentation-button">
+                                                <button type="submit" name="start" class="button form-button" display="block" bg-color="dark-blue" style="margin-left: auto;"><span color="white">Пройти анонимно</span></button>
+                                            </div>
+                                        </div>
+                                    </form>
+
+                                    <form id="passage" action="" method="post" style="position: relative; display: none;">
+                                        <div id="form-wrap">
+
+                                            <div class="question">
+                                                <h3 id="question-description">Введите ассоциацию к слову: <span color="dark-blue"></span></h3>
+                                                <div class="flex-box" flex-direction="row" flex-wrap="nowrap">
+                                                    <div class="form-group" id="question-label" style="margin-bottom: 0;">
+                                                        <label for="word" class="control-label" display="inline-block" style="display: none;">
+                                                            <span></span>
+                                                        </label>
+                                                    </div>
+                                                    <div class="form-button search-button" style="margin-left: 16px;">
+                                                        <button type="submit" name="button" class="button form-button search-button" display="block" bg-color="dark-blue">
+                                                            <span color="white">➜</span>
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </form>
+
+                                    <div id="experiment-result" style="position: relative; width: 100%;"></div>
+
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+
+<?php self::start(); ?>
+<script type="text/javascript">Experimentation.online({});</script>
+<script type="text/javascript">
+
+    const _e_start = document.getElementById('start');
+
+    const _q_passage = document.getElementById('passage');
+    const _q_title = document.getElementById('question-description');
+
+    const _s_label = document.getElementById('question-label');
+
+    const _e_resiult = document.getElementById('experiment-result');
+
+    class Online
+    {
+
+        constructor()
+        {
+
+            this.get_random_stimul();
+
+            this.reactions_for_stimulus = new Set([]);
+
+            this.index = 0;
+
+            _e_start.addEventListener('submit', event =>
+                                      {
+                event.preventDefault();
+                this.fade_out_form(event.target);
+                this.disable_form(event.target);
+                setTimeout(() =>
+                           {
+                    this.fade_in_form(_q_passage);
+                    this.render_stimulus(_s_label);
+                }, 300)
+            });
+
+            _q_passage.addEventListener('submit', event =>
+                                        {
+                event.preventDefault();
+                if (this.index >= (this.stimuls.length-1))
+                {
+                    this.fade_out_form(event.target);
+                    setTimeout(() =>
+                               {
+                        this.fade_in_info(_e_resiult);
+                        this.reactions_for_stimulus.forEach(value =>
+                                                            {
+                            this.insert_reaction_for_stimul(
+                                value.motivation, value.reaction
+                            );
+                        });
+                    }, 300);
+                    this.disable_form(event.target);
+                }
+                this.reactions_for_stimulus.add({
+                    motivation: this.stimuls[this.index],
+                    reaction: this.input.value
+                });
+                this.fade_out_input(this.input);
+            });
+
+        }
+
+        async get_random_stimul()
+        {
+            this.stimuls = [];
+            let _response = await fetch('/api/get/stimulus');
+            let _json = await _response.json();
+            for (let i of _json)
+            {
+                this.stimuls.push(i.motivation);
+            }
+            this.is_logged_in();
+            _q_title.innerHTML = `Введите ассоциацию к слову: <span color="dark-blue">${this.stimuls[this.index]}</span>`;
+        }
+
+        async is_logged_in()
+        {
+            let _response = await fetch('/api/is/logged/in');
+            let _json = await _response.json();
+            if (_json.result === false)
+            {
+                this.fade_in_form(_e_start);
+                _q_passage.style.display = 'none';
+            } else {
+                this.disable_form(_e_start);
+                this.fade_in_form(_q_passage);
+                this.render_stimulus(_s_label);
+            }
+        }
+
+        fade_out_form(form)
+        {
+            form.style.display = 'none';
+            form.style.opacity = 0;
+        }
+
+        fade_in_form(form)
+        {
+            form.style.display = 'block';
+            form.style.opacity = 1;
+        }
+
+        disable_form(form)
+        {
+            form.style.pointerEvents = 'none';
+            form.style.display = 'none';
+        }
+
+        render_stimulus(parent)
+        {
+            this.input = this.create_input(`Введите свою ассоциацию к слову... ${this.stimuls[this.index]}`);
+            this.input.addEventListener('transitionend', () =>
+                                        {
+                this.fade_in_input(this.input, `Введите свою ассоциацию к слову... ${this.stimuls[this.index]}`);
+            });
+            parent.appendChild(this.input);
+        }
+
+        create_input(placeholder)
+        {
+            let input = document.createElement('input');
+            input.classList.add('control-input', 'search-input');
+            input.required = true;
+            input.placeholder = placeholder;
+            return input;
+        }
+
+        fade_out_input(input)
+        {
+            input.style.opacity = 0;
+            this.index++;
+        }
+
+        fade_in_input(input, placeholder)
+        {
+            _q_title.innerHTML = `Введите ассоциацию к слову <span color="dark-blue">${this.stimuls[this.index]}</span>`;
+            this.input.value = null;
+            input.style.opacity = 1;
+            input.placeholder = placeholder;
+        }
+
+        fade_in_info(element)
+        {
+            element.innerHTML = `Поздравляем! Вы прошли эксперимент...`;
+            element.style.opacity = 1;
+        }
+
+        async insert_reaction_for_stimul(motivation, reaction)
+        {
+            let _data = new FormData();
+            _data.append('motivation', motivation);
+            _data.append('reaction', reaction);
+            let _response = await fetch('/api/insert/reaction/for/stimul', {
+                method: 'POST', body: _data
+            });
+        }
+
+    }
+
+    window.addEventListener('load', () =>
+                            {
+        let e = new Online();
+    })
+
+</script>
+<?php self::end('script'); ?>

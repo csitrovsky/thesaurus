@@ -1,0 +1,33 @@
+Options -MultiViews
+Options -Indexes
+
+php_flag display_startup_errors on
+php_flag display_errors on
+php_flag html_errors on
+
+<files .htaccess="">
+    order allow,deny
+    deny from all
+</files>
+
+<ifmodule mod_deflate.c="">
+    <filesmatch .(js|css)$="">
+        SetOutputFilter DEFLATE
+    </filesmatch>
+</ifmodule>
+
+AddDefaultCharset utf-8
+AddType application/x-httpd-php .html .htm
+
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    RewriteBase /public
+
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-l
+    RewriteCond %{REQUEST_FILENAME} !favicon.ico$
+
+    RewriteCond %{REQUEST_URI} !.*°.*
+    RewriteRule ^(([^/]+/)*[^.]+)$ index.php?url=$1 [QSA,L]
+</IfModule>

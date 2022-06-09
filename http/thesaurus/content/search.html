@@ -1,0 +1,210 @@
+<div class="container">
+    <div class="row custom-row" display="block">
+
+        <div class="root">
+
+            <div class="app-layout">
+                <div class="app-costomers flex-box" flex-direction="column" flex-wrap="nowrap" bg-color="white">
+                    <div class="app-dashboard">
+                        <div class="dashboard">
+
+                            <div class="search">
+                                <div class="search-wrapper">
+                                    <form action="" method="post" onsubmit="return false;">
+
+                                        <div class="flex-box" flex-direction="row" flex-wrap="nowrap" style="margin-bottom: 16px;">
+                                            <div class="form-group" style="margin-bottom: 0;">
+                                                <label for="word" class="control-label" display="inline-block" style="display: none;"><span>Поиск по слову</span></label>
+                                                <input type="text" id="search_word" class="control-input search-input" name="search_word" placeholder="Введите поисковый запрос в поле поиска слов" required="" autofocus="" bg-color="light-blue" color="dark" value="">
+                                            </div>
+                                            <div class="form-button search-button" style="margin-left: 16px;"><button type="submit" name="button" class="button form-button search-button" display="block" bg-color="dark-blue"><span color="white">Найти</span></button></div>
+                                        </div>
+
+                                        <div class="additional-search-parameters flex-box" flex-direction="column">
+
+                                            <div class="options flex-box" justify-content="flex-end"><span id="option-down-put" class="status" display="inline-block" bg-color="light-dark" color="dark">Дополнительные параметры поиска</span></div>
+
+                                            <div id="parameters" class="flex-box" flex-direction="row" flex-wrap="nowrap" style="height: 0; opacity: 0;">
+
+                                                <div class="form-group" style="margin-bottom: 0;">
+                                                    <h3 class="search-title">
+                                                        <span>Тип поиска:</span>
+                                                    </h3>
+                                                    <div class="form-group">
+                                                        <input name="type" autocomplete="direct search" type="radio" id="direct search" class="form-radio" value="direct search" required checked>
+                                                        <label for="direct search" class="control-label">Прямой поиск</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <input name="type" autocomplete="reverse lookup" type="radio" id="reverse lookup" class="form-radio" value="reverse lookup" required>
+                                                        <label for="reverse lookup" class="control-label">Обратный просмотр</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" style="margin-bottom: 0; margin-left: 16px;">
+                                                    <h3 class="search-title">
+                                                        <span>Сортировка по полу:</span>
+                                                    </h3>
+                                                    <div class="form-group">
+                                                        <input name="gender" autocomplete="any gender" type="radio" id="any gender" class="form-radio" value="any gender" required checked>
+                                                        <label for="any gender" class="control-label">Любого пола</label>
+                                                    </div>
+                                                </div>
+
+                                                <div class="form-group" style="margin-bottom: 0; margin-left: 16px;">
+                                                    <h3 class="search-title">
+                                                        <span>Сортировать:</span>
+                                                    </h3>
+                                                    <div class="form-group">
+                                                        <input name="collating" autocomplete="by frequency" type="radio" id="by frequency" class="form-radio" value="by frequency" required checked>
+                                                        <label for="by frequency" class="control-label">По частоте</label>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </form>
+                                </div>
+                            </div>
+
+                            <div id="result" class="search-result"></div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>
+
+<?php self::start(); ?>
+<script type="text/javascript">Experimentation.thesaurus({});</script>
+<script type="text/javascript">
+const $output_result = $('#result');
+$output_result.html('Чтобы начать поиск, введите искомое слово в строку поиска.');
+
+$('button[name="button"]').on('click', function () {
+
+    const $result = {};
+    const $search = $('#search_word').val().trim();
+
+    if (($search.length <= 0) && ($search === ''))
+    {
+        $output_result.html('<p class="description"><span id="description" class="status" display="inline-block" bg-color="light-red" color="dark-red" style="margin-right: 16px;">Error</span>Поиск пуст! Введите поисковый запрос в строке поиска, чтобы получить ассоциации для поискового слова...</p>');
+        return;
+    }
+
+    const _form_parameters = $('form').serializeArray();
+    const data = [];
+    $.each(_form_parameters, function (index, value) {
+       data[value.name] = value.value;
+    });
+    console.log(data);
+
+    $.ajax({
+        type: 'GET', cache: false, url: '/api/thesaurus/search',
+        data: {
+            'search_word': $search, //  ...
+            'age_initial': data.age_initial, 'age_final': data.age_final, //  ...
+            'specialty': 'null', 'spoken_language': 'null', //   ...
+            //  'any gender', 'male', 'female', 'a comparison of the sexes'
+            'gender': data.gender, //  ...
+            //  'by frequency', 'alphabetically'
+            'collating': data.collating, //  ...
+            //  'direct search', 'reverse lookup'
+            'type': data.type, // ...
+            'limit': 'null'
+        }, dataType: 'html',
+        beforeSend: function ()
+        {
+            $output_result.html('<p class="description">Поиск осуществляется по слову:<span id="description" class="status" display="inline-block" bg-color="light-blue" color="dark-blue" style="margin-left: 16px;">'+$search+'</span></p>');
+            $('button[name="button"]').prop('disabled', true);
+            $('#search').prop({'disabled': true, 'value': $search});
+        },
+        success: function ($data)
+        {
+
+            $('button[name="button"]').prop('disabled', false);
+            $('#search').prop('disabled', false);
+
+            $output_result.html('<h2 class="title"><span class="octothorpe display-inline-block">// ...</span>'+$search+'</h2>');
+
+            if ($data)
+            {
+
+                console.log($data);
+                const $findings = JSON.parse($data);
+
+                if ($findings.error)
+                {
+                    $output_result.append('<p class="description"><span id="description" class="status" display="inline-block" bg-color="light-red" color="dark-red" style="margin-right: 16px;">Error</span>'+$findings.error+'...</p>');
+                    return;
+                }
+
+                $output_result.append('<p class="description" style="margin-bottom: 48px;"><span id="description" class="status" display="inline-block" bg-color="light-dark" color="dark" style="margin-right: 16px;">Описание:</span>'+$findings.description+'</p>');
+
+                $output_result.append('<div id="statistics"><p class="description"># Различных реакций:<span id="count" class="status" display="inline-block" bg-color="light-dark" color="dark" style="margin-left: 16px;">0</span></p><p class="description"># Одиночных реакций:<span id="single" class="status" display="inline-block" bg-color="light-dark" color="dark" style="margin-left: 16px;">0</span></p><p class="description"># Отказов:<span id="rejections" class="status" display="inline-block" bg-color="light-dark" color="dark" style="margin-left: 16px;">0</span></p></div>');
+
+                if ($findings.count)
+                {
+                    $('#count').html($findings.count);
+                }
+
+                if ($findings.single)
+                {
+                    $('#single').html($findings.single);
+                }
+
+                if ($findings.rejections)
+                {
+                    $('#rejections').html($findings.rejections);
+                }
+
+                $output_result.append('<div><span id="type" class="status" display="inline-block" bg-color="light-blue" color="dark-blue" style="margin-right: 16px;">' + $findings.type + ':</span><p id="result_search" class="description" display="inline"></p></div>');
+
+                if ($findings.result)
+                {
+                    $.each($findings.result, function (index, value) {
+                        $('#result_search').prepend('<span><span>' + value.join('<span>, </span>') + '</span>' + ' <b>(' + index + ')</b>' + ' <i>[' + ((index/$findings.count) * 100).toFixed(2) + ']</i><span>; </span></span>');
+                    });
+                }
+
+                $('#result_search').append('<b><i>'+$findings.count+'+'+$findings.various+'+'+$findings.rejections+'+'+ $findings.single+' '+'// 0+'+$findings.count+'</i></b>');
+                return;
+
+            }
+
+            $output_result.append('<p class="description"><span id="description" class="status" display="inline-block" bg-color="light-red" color="dark-red" style="margin-right: 16px;">Error</span>Oops! Поиск не дал никаких результатов...</p>');
+            return;
+
+        }
+
+    });
+
+});
+</script>
+<script type="text/javascript">
+$(function ()
+  {
+   $('#option-down-put').click(function ()
+                               {
+       var _button = $(this);
+       var _options = $('.options');
+       var _parameters = $('#parameters');
+       _button.toggleClass('active');
+       if (!_button.hasClass('active'))
+       {
+           _options.css({marginBottom: 0});
+           _parameters.css({height: 0, opacity: 0});
+       } else
+       {
+           _options.css({marginBottom: '16px'});
+           _parameters.css({height: 'auto', opacity: 1});
+       }
+   });
+});
+</script>
+<?php self::end('script'); ?>

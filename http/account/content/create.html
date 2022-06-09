@@ -1,0 +1,75 @@
+<div class="container">
+    <div class="row custom-row" display="block">
+
+        <div class="root">
+
+            <div class="app-layout" width="small">
+                <div class="app-costomers flex-box" flex-direction="column" flex-wrap="nowrap" bg-color="white">
+                    <div class="app-dashboard">
+                        <div class="dashboard flex-box">
+
+                            <div class="outer">
+                                <div class="outer-wrapper">
+                                    <form action="" method="post" class="outer-form">
+                                        <div>
+
+                                            <div class="form-description" style="margin-bottom: 48px;">
+                                                <div class="outer-title">
+                                                    <h2><span>Создание учетной записи</span></h2>
+                                                </div>
+                                                <p class="outer-description">Начните делать что-то бесплатно, в одно мгновение.</p>
+                                            </div>
+
+                                            <?php if (isset($errors) && is_array($errors) && count($errors)) :?>
+                                                <div class="form-description form-errors" style="margin-bottom: 48px;">
+                                                    <?php foreach ($errors as $item) :?>
+                                                        <p class="description"><span id="description" class="status" display="inline-block" bg-color="light-red" color="dark-red" style="margin-right: 16px;">Ошибка</span><?=$item;?>...</p>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <div class="form-group">
+                                                <label for="email" class="control-label" display="inline-block"><span>Адрес электронной почты</span></label>
+                                                <input type="email" id="email" class="control-input" name="personal[email_address]" placeholder="Введите свой адрес электронной почты" autofocus="" required bg-color="light-blue" color="dark">
+                                            </div>
+
+                                            <div class="flex-box">
+                                                <div class="form-group">
+                                                    <label for="name" class="control-label" display="inline-block"><span>Полное имя (ФИО)</span></label>
+                                                    <input type="text" id="name" class="control-input" name="personal[complete_name]" placeholder="Введите свое полное имя (ФИО)" required bg-color="light-blue" color="dark">
+                                                </div>
+                                                <div class="form-group" style="margin-left: 16px;">
+                                                    <label for="username" class="control-label" display="inline-block"><span>Имя пользователя</span></label>
+                                                    <input type="text" id="username" class="control-input" name="personal[username]" placeholder="Придумайте имя пользователя" required bg-color="light-blue" color="dark">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="password" class="control-label" display="inline-block"><span>Пароль</span></label>
+                                                <input type="password" id="password" class="control-input" name="personal[password]" placeholder="Придумайте вароль" required bg-color="light-blue" color="dark">
+                                            </div>
+
+                                            <div class="form-button" style="margin-bottom: 48px;">
+                                                <button type="submit" name="button" class="button form-button" display="block" bg-color="dark-blue" style="margin-left: auto;"><span color="white">Создать учетную запись</span></button>
+                                            </div>
+
+                                            <div class="form-description">
+                                                <p class="outer-description" style="margin-bottom: 16px;">Личная информация, полученная от Вас, останется конфиденциальной и будет храниться в анонимном виде на наших серверах и в базах. Все собранные данные будут использованы в исследовательских целях.</p>
+                                                <p class="outer-description" style="margin-bottom: 16px;">Нажав на кнопку "Создать учетную запись", вы соглашаетесь с нашим <a href="#" class="link" style="height: auto;"><span class="outer-link" color="dark-blue">Пользовательскими условаиями</span></a></p>
+                                                <p class="outer-description">Выуже зарегистрированы? <a href="/session/start" class="link" style="height: auto;"><span class="outer-link" color="dark-blue">Войдите в свою учетную запись</span></a></p>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

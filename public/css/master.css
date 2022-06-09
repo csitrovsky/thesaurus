@@ -1,0 +1,826 @@
+@charset "UTF-8";
+/* line 5, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+::selection {
+  background: #1e2022;
+  text-shadow: none;
+  color: white; }
+
+/* line 11, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+*, *::after, *::before {
+  box-sizing: border-box;
+  border: 0 none;
+  outline: none; }
+
+/* line 17, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+*, *::after, *::before {
+  padding: 0;
+  margin: 0; }
+
+/* line 22, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  background: transparent;
+  vertical-align: baseline; }
+
+/* line 27, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, font, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td {
+  font-size: 100%; }
+
+/* line 31, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
+  display: block; }
+
+/* line 35, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+html, body {
+  font-family: 'Anonymous Pro', monospace; }
+
+/* line 39, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+html, body {
+  line-height: 1.5;
+  font-size: 100%; }
+
+/* line 44, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+html, body {
+  height: 100%; }
+
+/* line 48, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; }
+
+/* line 53, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+body {
+  background: #1e2022;
+  line-height: 1.5;
+  font-weight: 400;
+  font-size: 16px;
+  text-align: left;
+  overflow: hidden;
+  overflow-y: auto;
+  min-width: 320px;
+  min-height: 100vh; }
+
+/* line 65, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+a {
+  text-decoration: none;
+  align-items: center; }
+
+/* line 70, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Courier Prime', monospace;
+  color: var(--color-black);
+  font-weight: 400;
+  line-height: 1.5;
+  margin-top: 0;
+  margin-bottom: 16px; }
+
+/* line 81, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+h1 {
+  font-size: 48px !important; }
+
+/* line 81, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+h2 {
+  font-size: 24px !important; }
+
+/* line 81, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+h3 {
+  font-size: 16px !important; }
+
+/* line 81, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+h4 {
+  font-size: 12px !important; }
+
+/* line 81, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+h5 {
+  font-size: 9.6px !important; }
+
+/* line 81, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+h6 {
+  font-size: 8px !important; }
+
+/* line 84, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.flex-box {
+  display: flex; }
+
+/* line 88, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[display~="block"] {
+  display: block; }
+
+/* line 92, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[display~="inline-block"] {
+  display: inline-block; }
+
+/* line 96, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[display~="inline"] {
+  display: inline; }
+
+/* line 100, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[flex-direction~="column"] {
+  flex-direction: column; }
+
+/* line 104, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[flex-direction~="column-reverse"] {
+  flex-direction: column-reverse; }
+
+/* line 108, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[flex-direction~="row"] {
+  flex-direction: row; }
+
+/* line 112, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[flex-direction~="row-reverse"] {
+  flex-direction: row-reverse; }
+
+/* line 116, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[flex-wrap~="nowrap"] {
+  flex-wrap: nowrap; }
+
+/* line 120, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[flex-wrap~="wrap"] {
+  flex-wrap: wrap; }
+
+/* line 124, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[flex-wrap~="wrap-reverse"] {
+  flex-wrap: wrap-reverse; }
+
+/* line 128, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[justify-content~="center"] {
+  justify-content: center; }
+
+/* line 132, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[justify-content~="flex-end"] {
+  justify-content: flex-end; }
+
+/* line 136, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[justify-content~="flex-start"] {
+  justify-content: flex-start; }
+
+/* line 140, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[justify-content~="space-around"] {
+  justify-content: space-around; }
+
+/* line 144, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[justify-content~="space-between"] {
+  justify-content: space-between; }
+
+/* line 148, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[bg-color~="white"] {
+  background: white; }
+
+/* line 152, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[bg-color~="dark"] {
+  background: #1e2022; }
+
+/* line 156, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[bg-color~="dark-blue"] {
+  background: #0845f5; }
+
+/* line 160, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[bg-color~="light-dark"] {
+  background: #f8f8f8; }
+
+/* line 164, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[bg-color~="light-blue"] {
+  background: #f4f5fe; }
+
+/* line 168, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[bg-color~="light-red"] {
+  background: #fbe7e6; }
+
+/* line 172, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[bg-color~="dark-red"] {
+  background: #ec3833; }
+
+/* line 176, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[color~="white"] {
+  color: white; }
+
+/* line 180, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[color~="dark"] {
+  color: #1e2022; }
+
+/* line 184, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[color~="dark-blue"] {
+  color: #0845f5; }
+
+/* line 188, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[color~="dark-red"] {
+  color: #ec3833; }
+
+/* line 192, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.butter-bar {
+  position: relative;
+  flex: 0 0 auto;
+  height: auto;
+  padding: 8px 48px;
+  text-align: center; }
+
+/* line 200, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+header {
+  position: relative;
+  flex: 0 0 auto; }
+
+/* line 205, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.menu {
+  padding-bottom: 8px;
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1440px;
+  flex: 1 1 auto;
+  height: 48px; }
+
+/* line 217, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.container {
+  height: 100%;
+  flex: 1 1 auto;
+  margin: 0 auto;
+  padding-left: 48px;
+  padding-right: 48px; }
+
+/* line 225, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.row {
+  margin-left: -48px;
+  margin-right: -48px; }
+
+/* line 230, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.logotype {
+  height: 100%; }
+
+/* line 234, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.collapse {
+  flex: 1 1 auto; }
+
+/* line 238, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.section {
+  margin: 0 auto;
+  height: 100%;
+  width: 100%; }
+
+/* line 244, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.item {
+  position: relative;
+  display: block; }
+
+/* line 249, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.link {
+  margin: 0 auto;
+  height: auto; }
+
+/* line 254, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.status {
+  padding: 0 16px;
+  border-radius: 4px; }
+
+/* line 259, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.option {
+  transition: color .2s ease-out 0s; }
+
+/* line 263, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.link:hover .option {
+  color: #0845f5; }
+
+/* line 267, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.item-margin-left {
+  margin-left: 16px; }
+
+/* line 271, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.item-margin-left:first-child {
+  margin: 0; }
+
+/* line 275, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.components {
+  position: relative;
+  flex: 1 0 0;
+  overflow: auto; }
+
+/* line 281, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.app-layout {
+  min-width: 320px;
+  min-height: 100%; }
+
+/* line 286, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.scrollable {
+  flex: 1 0 0; }
+
+/* line 290, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+main {
+  position: relative;
+  min-width: 416px;
+  margin: 0 auto;
+  width: 100%; }
+
+/* line 297, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.app-main {
+  max-width: 1440px;
+  flex: 1 0 auto; }
+
+/* line 302, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+aside {
+  position: relative;
+  flex: 0 0 auto;
+  max-height: 100%; }
+
+/* line 308, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.content {
+  position: relative;
+  min-width: 320px;
+  flex: 1 1 auto; }
+
+/* line 314, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+aside .content {
+  padding: 48px 0;
+  overflow: hidden;
+  overflow-y: auto; }
+
+/* line 320, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.item-margin-bottom {
+  margin-bottom: 8px; }
+
+/* line 324, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.item-margin-bottom:last-child {
+  margin-bottom: 0; }
+
+/* line 328, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.aside-link {
+  transition: background .2s ease-out 0s;
+  border-radius: 4px;
+  padding: 8px 16px; }
+
+/* line 334, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.aside-link:hover {
+  background: #f7f9fe; }
+
+/* line 338, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+footer {
+  position: relative;
+  min-width: 416px;
+  margin: 0 auto;
+  width: 100%; }
+
+/* line 345, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.app-footer {
+  max-width: 1440px;
+  margin: 0 auto;
+  flex: none; }
+
+/* line 351, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.footer-content {
+  padding-bottom: 0;
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 24px; }
+
+/* line 358, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.project {
+  position: relative;
+  flex: 1 1 auto; }
+
+/* line 363, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.wrapper {
+  width: 100%;
+  height: 100%; }
+
+/* line 368, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.custom {
+  position: relative;
+  flex: 1 1 auto;
+  padding: 48px 0; }
+
+/* line 374, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.custom-block {
+  position: relative;
+  padding: 0 48px;
+  margin: 0 auto;
+  width: 100%; }
+
+/* line 381, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.custom-row {
+  margin-bottom: 48px; }
+
+/* line 385, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.app-dashboard {
+  width: 100%;
+  flex: 1 1 auto;
+  margin: 0 auto;
+  padding: 0 48px; }
+
+/* line 392, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.timeout-description {
+  flex: 1 1 auto; }
+
+/* line 396, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.timeout {
+  margin-bottom: 16px; }
+
+/* line 400, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.dashboard {
+  padding: 48px 0;
+  width: 100%;
+  height: auto; }
+
+/* line 406, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.app-costomers {
+  position: relative;
+  border-radius: 4px;
+  max-width: 100%;
+  flex: 1 0 auto;
+  margin: 0 auto; }
+
+/* line 414, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.outer {
+  width: 100%;
+  margin: 0 auto; }
+
+/* line 419, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.outer, .outer-wrapper {
+  position: relative; }
+
+/* line 423, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[width~="small"] {
+  max-width: 416px;
+  margin: 0 auto; }
+
+/* line 428, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+[width~="medium"] {
+  max-width: 836px;
+  margin: 0 auto; }
+
+/* line 433, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.search {
+  width: 100%;
+  position: relative;
+  margin-bottom: 48px; }
+
+/* line 439, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.search-wrapper {
+  position: relative; }
+
+/* line 443, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-group {
+  margin-bottom: 16px;
+  flex: 1 1 auto; }
+
+/* line 448, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.control-label {
+  max-width: 100%;
+  margin-bottom: 4px;
+  font-family: 'Anonymous Pro', monospace; }
+
+/* line 454, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.control-input {
+  background: #f4f5fe;
+  position: relative;
+  border-radius: 4px;
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  display: block;
+  width: 100%;
+  resize: vertical;
+  padding: 8px 16px;
+  margin: 0 auto; }
+
+/* line 468, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+input[placeholder], textarea[placeholder] {
+  font-family: 'Anonymous Pro', monospace;
+  text-overflow: ellipsis; }
+
+/* line 473, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+input[placeholder], textarea[placeholder] {
+  color: #1e2022; }
+
+/* line 477, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+  font-family: 'Anonymous Pro', monospace;
+  text-overflow: ellipsis;
+  color: #1e2022; }
+
+/* line 483, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+input::-moz-placeholder, textarea::-moz-placeholder {
+  font-family: 'Anonymous Pro', monospace;
+  text-overflow: ellipsis;
+  color: #1e2022; }
+
+/* line 489, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+input:-moz-placeholder, textarea:-moz-placeholder {
+  font-family: 'Anonymous Pro', monospace;
+  text-overflow: ellipsis;
+  color: #1e2022; }
+
+/* line 495, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+input:-ms-input-placeholder, textarea:-ms-input-placeholder {
+  font-family: 'Anonymous Pro', monospace;
+  text-overflow: ellipsis;
+  color: #1e2022; }
+
+/* line 501, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.control-textarea {
+  background: #f7f9fe;
+  position: relative;
+  border-radius: 4px;
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit;
+  display: block;
+  width: 100%;
+  resize: none;
+  padding: 8px 16px;
+  margin: 0 auto;
+  min-height: 150px; }
+
+/* line 516, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.button {
+  background: #0845f5;
+  position: relative;
+  border-radius: 4px;
+  padding: 8px 16px;
+  cursor: pointer;
+  display: block;
+  font-size: 14px; }
+
+/* line 526, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.button span {
+  color: white;
+  font-size: 16px;
+  margin: 0 auto;
+  display: block;
+  font-family: 'Anonymous Pro', monospace; }
+
+/* line 534, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.search-button {
+  flex: 0 0 auto;
+  font-family: inherit;
+  line-height: inherit;
+  font-size: inherit; }
+
+/* line 541, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.search-result {
+  margin: 0 auto;
+  position: relative; }
+
+/* line 546, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.octothorpe {
+  font-family: 'Anonymous Pro', monospace;
+  margin-right: 16px;
+  font-size: 14px; }
+
+/* line 552, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+#statistics {
+  margin-bottom: 48px; }
+
+/* line 556, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+#statistics .description {
+  margin-bottom: 16px; }
+
+/* line 560, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+#statistics .description:last-child {
+  margin-bottom: 0; }
+
+/* line 564, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-errors p {
+  margin-bottom: 16px; }
+
+/* line 568, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-errors p:last-child {
+  margin-bottom: 0; }
+
+/* line 572, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.aside-components:last-child {
+  margin-bottom: 0 !important; }
+
+/* line 576, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.email_address {
+  display: block;
+  text-transform: none;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  letter-spacing: 0; }
+
+/* line 585, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  vertical-align: middle; }
+
+/* line 589, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  background-position: center center;
+  background-repeat: no-repeat; }
+
+/* line 594, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  bottom: 0;
+  left: 0;
+  right: 0;
+  top: 0; }
+
+/* line 598, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  content: 'Загрузка страницы...';
+  position: fixed; }
+
+/* line 603, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  padding-bottom: 48px;
+  padding-left: 48px;
+  padding-right: 48px;
+  padding-top: 48px; }
+
+/* line 610, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  font-weight: 400;
+  color: #1e2022; }
+
+/* line 615, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  width: 100vw; }
+
+/* line 619, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  height: 100vh; }
+
+/* line 623, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  z-index: 9;
+  opacity: 1; }
+
+/* line 628, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  font-size: 16px; }
+
+/* line 632, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  font-family: 'Anonymous Pro', monospace;
+  background: white; }
+
+/* line 638, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  text-align: center;
+  flex-direction: column;
+  justify-content: center; }
+
+/* line 644, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader::after {
+  display: flex; }
+
+/* line 648, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.preloader.on-ready::after {
+  animation-name: fade;
+  animation-duration: .3s;
+  animation-iteration-count: 1;
+  animation-fill-mode: forwards; }
+
+@keyframes fade {
+  0% {
+    opacity: 1; }
+  100% {
+    opacity: 0;
+    visibility: hidden; } }
+
+/* line 657, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.additional-search-parameters {
+  position: relative; }
+
+/* line 661, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.options {
+  width: 100%;
+  height: auto; }
+
+/* line 666, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.options .status {
+  cursor: pointer; }
+
+/* line 670, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.parameters {
+  transition: height .3s ease-out 0s, opacity .3s ease-out 0s; }
+
+/* line 675, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-radio {
+  position: absolute;
+  opacity: 0; }
+
+/* line 680, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-radio + label:before {
+  content: '';
+  margin-right: 16px;
+  display: inline-block;
+  vertical-align: text-top;
+  width: 16px;
+  height: 16px;
+  border-radius: 4px;
+  background: #f8f8f8; }
+
+/* line 691, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-radio + label:before {
+  transition: background .3s ease-out; }
+
+/* line 695, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-radio + label:before {
+  background: #f4f5fe; }
+
+/* line 699, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-radio:checked + label:before {
+  background: #0845f5; }
+
+/* line 703, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-radio:disabled + label {
+  color: #1e2022;
+  cursor: auto; }
+
+/* line 708, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.form-radio:disabled + label:before {
+  background: #f8f8f8; }
+
+/* line 712, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  -o-appearance: none;
+  border-radius: 0;
+  border-radius: 4px; }
+
+/* line 722, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.experimentation {
+  position: relative;
+  margin: 0 auto;
+  width: 100%; }
+
+/* line 728, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.experimentation-wrapper {
+  position: relative; }
+
+/* line 732, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+#form-wrap {
+  transition: all 800ms ease-in-out; }
+
+/* line 736, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+#question-description.animation {
+  animation: input-animation 1200ms ease-in-out; }
+
+/* line 740, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.question {
+  transition: all 250ms ease-in-out; }
+
+/* line 744, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.question input {
+  transition: all 200ms ease-in-out; }
+
+/* line 748, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.question input.animation {
+  animation: input-animation 1000ms ease-in-out; }
+
+/* line 752, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.question button.animation {
+  animation: button-animation 1000ms ease 200ms; }
+
+/* line 756, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+.question p.animation {
+  animation: index-animation 1100ms ease; }
+
+@keyframes h1-animation {
+  0% {
+    transform: translateY(0); }
+  20% {
+    transform: translateY(20px); }
+  60% {
+    transform: translateY(-10px); }
+  100% {
+    transform: translateY(0px); } }
+
+@keyframes input-animation {
+  0% {
+    transform: translateY(0); }
+  20% {
+    transform: translateY(20px); }
+  60% {
+    transform: translateY(-20px); }
+  100% {
+    transform: translateY(0px); } }
+
+@keyframes button-animation {
+  0% {
+    transform: translateY(0); }
+  20% {
+    transform: translateY(20px); }
+  60% {
+    transform: translateY(-20px); }
+  100% {
+    transform: translateY(0px); } }
+
+@keyframes index-animation {
+  0% {
+    opacity: .25; }
+  20% {
+    opacity: 0; }
+  80% {
+    opacity: 0; }
+  100% {
+    opacity: .25; } }
+
+/* line 820, /Users/csitrovsky/Documents/GitHub/thesaurus/public/css/master.scss */
+#question-description {
+  text-transform: none; }
+
+/*# sourceMappingURL=master.css.map */

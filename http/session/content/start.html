@@ -1,0 +1,62 @@
+<div class="container">
+    <div class="row custom-row" display="block">
+
+        <div class="root">
+
+            <div class="app-layout" width="small">
+                <div class="app-costomers flex-box" flex-direction="column" flex-wrap="nowrap" bg-color="white">
+                    <div class="app-dashboard">
+                        <div class="dashboard flex-box">
+
+                            <div class="outer">
+                                <div class="outer-wrapper">
+                                    <form action="" method="post" class="outer-form">
+                                        <div>
+
+                                            <div class="form-description" style="margin-bottom: 48px;">
+                                                <div class="outer-title">
+                                                    <h2><span>Вход</span></h2>
+                                                    <p class="outer-description">Войдите в свою учетную запись, чтобы продолжить работу.</p>
+                                                </div>
+                                            </div>
+
+                                            <?php if (isset($errors) && is_array($errors) && count($errors)) :?>
+                                                <div class="form-description form-errors" style="margin-bottom: 48px;">
+                                                    <?php foreach ($errors as $item) :?>
+                                                        <p class="description"><span id="description" class="status" display="inline-block" bg-color="light-red" color="dark-red" style="margin-right: 16px;">Ошибка</span><?=$item;?>...</p>
+                                                    <?php endforeach; ?>
+                                                </div>
+                                            <?php endif; ?>
+
+                                            <div class="form-group">
+                                                <label for="username" class="control-label" display="inline-block"><span>Имя пользователя</span></label>
+                                                <input type="text" id="username" class="control-input" name="personal[username]" placeholder="Введите имя пользователя" autofocus="" required bg-color="light-blue" color="dark">
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="password" class="control-label" display="inline-block"><span>Пароль</span></label>
+                                                <input type="password" id="password" class="control-input" name="personal[password]" placeholder="Введите пароль" required bg-color="light-blue" color="dark">
+                                            </div>
+
+                                            <div class="form-button" style="margin-bottom: 48px;">
+                                                <button type="submit" name="button" class="button form-button" display="block" bg-color="dark-blue" style="margin-left: auto;"><span color="white">Войти</span></button>
+                                            </div>
+
+                                            <div class="form-description">
+                                                <p class="outer-description" style="margin-bottom: 16px;">Если вы не создавали учутную запись на Нашем сайте, то перейдите на страницу с Регистрацией или нажминет на ссылку: <a href="/account/create" class="link" style="height: auto;"><span class="outer-link" display="inline-block" color="dark-blue">Cоздайте сейчас</span></a></p>
+                                            </div>
+
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</div>

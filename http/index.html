@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+    <meta charset="UTF-8">
+    <title>Прикладная цифровая платформа для проведения ассоциативного эксперимента</title>
+
+    <!-- ... fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Courier+Prime&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Anonymous+Pro&display=swap" rel="stylesheet">
+
+    <!-- ... styles -->
+    <link rel="stylesheet" href="/css/master.css">
+
+    <!-- ... scripts -->
+    <sctipy type="text/javascript" src="https://code.jquery.com/jquery-3.5.1.min.js"></sctipy>
+    <script type="text/javascript" src="/js/lib/jQuery.js"></script>
+
+    <!-- ... babel -->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+
+    <!-- ... Yandex.Metrika counter -->
+    <script type="text/javascript" >
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(67390591, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/67390591" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+    <!-- /Yandex.Metrika counter -->
+
+</head>
+<body class="preloader flex-box on-project on-sidebar-left on-sidebar-open on-app-layout-1 scroll" flex-direction="column" bg-color="dark" style="height: 100%;" alink="" background bgcolor="#1e2022" bgproperties="fixed" bottommargin="0" leftmargin="0" link="#1e2022" rightmargin="0" scroll="no" text="#1e2022" topmargin="0" vlink="#1e2022">
+
+    <!-- ... Main site information -->
+    <!-- <div class="butter-bar" bg-color="dark-blue" color="white" style="min-width: 416px;"><a href="#" class="link" display="inline-block" color="white"><div style="flex-box"><span style="text-transform: capitalize; border-bottom: 1px dashed white;">visit this resource page</span></div></a> to see small hacks people are making to help with the challenges of COVID-19.</div> -->
+
+    <!-- ... The head of the site -->
+    <header bg-color="white">
+        <div class="menu">
+
+            <div class="container">
+                <div class="row flex-box" flex-direction="row" flex-wrap="nowrap" justify-content="space-between" style="height: 100%;">
+
+                    <div class="logotype flex-box">
+                        <div class="collapse">
+                            <menu class="section flex-box">
+
+                                <li class="item" display="inline-block">
+                                    <a href="/" class="link flex-box" flex-direction="column" justify-content="center" color="dark" style="height: 100%;">
+                                        <div class="flex-box" style="margin: 0 auto;">
+                                            <span class="status" display="inline-block" bg-color="light-blue" color="dark-blue" style="margin-right: 16px;">Ассоциативный Экспреимент</span>
+                                            <p class="description option flex-box" display="inline-block" color="dark" style="text-transform: none;">Версия: <span class="status" display="inline-block" bg-color="light-red" color="dark-red" style="margin-right: 16px;">beta</span></p>
+                                        </div>
+                                    </a>
+                                </li>
+
+                            </menu>
+                        </div>
+                    </div>
+
+                    <div class="flex-box" flex-direction="row" flex-wrap="nowrap" style="margin-left: auto;">
+                        <div class="collapse">
+                            <menu class="section flex-box">
+
+                                <?php if (self::is_logged_in()) :?>
+                                <li class="item item-margin-left" display="inline-block"><a href="/session/logout" class="link flex-box" flex-direction="column" justify-content="center" style="height: 100%;"><div><span class="status option" display="inline-block" bg-color="light-dark" color="dark">Выйти</span></div></a></li>
+                                <?php else :?>
+                                <li class="item item-margin-left" display="inline-block"><a href="/session/start" class="link flex-box" flex-direction="column" justify-content="center" style="height: 100%;"><div><span class="option" display="inline-block" color="dark">Вход</span></div></a></li>
+                                <li class="item item-margin-left" display="inline-block"><a href="/account/create" class="link flex-box" flex-direction="column" justify-content="center" style="height: 100%;"><div><span class="status option" display="inline-block" bg-color="light-dark" color="dark">Регистрация</span></div></a></li>
+                                <?php endif; ?>
+
+                            </menu>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+    </header>
+
+    <!-- ... The main components of the website -->
+    <div class="components" bg-color="white">
+
+        <div id="root" style="height: 100%;">
+
+            <div class="app-layout flex-box" flex-direction="column">
+                <div class="scrollable flex-box" flex-direction="column">
+
+                    <main class="app-main flex-box" flex-direction="row">
+
+                        <!-- ... Home side panel of the site -->
+                        <aside class="flex-box" bg-color="white" style="display: block;">
+                            <div class="content flex-box" flex-direction="column" flex-wrap="nowrap" style="position: sticky; width: 320px; top: 0;">
+
+                                <div class="aside-components" style="margin-bottom: 16px;">
+
+                                    <div class="container">
+                                        <div class="row flex-box" flex-direction="column" flex-wrap="nowrap">
+
+                                            <div style="padding: 0 48px; margin-bottom: 16px;">
+
+                                                <div class="collapse flex-box" style="height: auto;">
+                                                    <menu class="section flex-box" flex-direction="column" flex-wrap="nowrap">
+
+                                                        <li class="item item-margin-bottom"><a href="/" class="link aside-link flex-box" bg-color="white"><div><span class="option" color="dark">Главная страница</span></div></a></li>
+
+                                                    </menu>
+                                                </div>
+
+                                            </div>
+
+                                            <div style="padding: 0 48px; <?php if (self::is_logged_in()) { echo 'margin-bottom: 16px;'; } ?>">
+
+                                                <div class="collapse flex-box" style="height: auto;">
+                                                    <menu class="section flex-box" flex-direction="column" flex-wrap="nowrap">
+
+                                                        <li class="item item-margin-bottom"><a href="/experimentation/online" class="link aside-link flex-box" bg-color="white"><div><span class="option" color="dark">Эксперимент онлайн</span></div></a></li>
+
+                                                        <li class="item item-margin-bottom"><a href="/thesaurus/search" class="link aside-link flex-box" bg-color="white"><div><span class="option" color="dark">Тезаурус</span></div></a></li>
+
+                                                    </menu>
+                                                </div>
+
+                                            </div>
+
+                                            <?php if (self::is_logged_in()) :?>
+                                            <div style="padding: 0 48px;">
+
+                                                <div class="collapse flex-box" style="height: auto;">
+                                                    <menu class="section flex-box" flex-direction="column" flex-wrap="nowrap">
+
+                                                        <li class="item item-margin-bottom">
+                                                            <a href="/account/settings" class="link aside-link flex-box" display="block" bg-color="light-dark">
+                                                                <div display="block" style="position: relative;">
+                                                                    <span class="option" color="dark" style="margin-bottom: 8px;">Настройка учетной записи:</span>
+                                                                    <span class="option email_address" color="dark" style="text-transform: lowercase; color: #1e2022 !important;"><?=self::query('SELECT `email_address` FROM `customers` WHERE `id` = :id', array(':id' => self::is_logged_in()))[0]['email_address'];?></span>
+                                                                </div>
+                                                            </a>
+                                                        </li>
+
+                                                    </menu>
+                                                </div>
+
+                                            </div>
+                                            <?php endif; ?>
+
+                                        </div>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </aside>
+
+                        <!-- ... The main content of the website -->
+                        <div class="content flex-box" bg-color="light-dark" style="min-width: 512px;">
+                            <div class="project">
+
+                                <section class="wrapper">
+                                    <article class="container">
+                                        <div class="row flex-box" flex-direction="column" flex-wrap="nowrap" style="height: 100%;">
+
+                                            <div class="custom">
+                                                <div class="custom-block">
+
+                                                    <!-- ... Main page components -->
+                                                    <?=$content;?>
+
+                                                    <!-- ... Component with page loading time output -->
+                                                    <div class="container">
+                                                        <div class="row custom-row" display="block">
+
+                                                            <div class="root">
+
+                                                                <div class="app-layout">
+                                                                    <div class="app-costomers flex-box" flex-direction="column" flex-wrap="nowrap" bg-color="white">
+                                                                        <div class="app-dashboard">
+                                                                            <div class="dashboard flex-box">
+
+                                                                                <div class="timeout-description">
+                                                                                    <p class="description timeout">Загрузка страницы составило: <span class="status" display="inline-block" bg-color="light-dark" color="dark"><?php printf('%f', $timeout_total); ?></span> секунд.</p>
+                                                                                    <p class="description notification">Дайте нам знать по электронной почте: <span class="status" display="inline-block" bg-color="light-blue" color="dark-blue" style="text-transform: none;">igor.melnikov.vladimirovich@gmail.com</span> если у вас страница загружается более 5 секунд.</p>
+                                                                                </div>
+
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+
+                                                            </div>
+
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </article>
+                                </section>
+
+                            </div>
+                        </div>
+
+                    </main>
+
+                    <!-- ... The footer of your website -->
+                    <footer class="app-footer flex-box" bg-color="white"><div class="content" style="padding-bottom: 48px;"><div class="container"><div class="row"><div class="footer-content" color="dark" style="min-width: 416px;">© 2020 Московский политехнический университет <span display="inline-block" style="font-size: 12px;">// ...</span> Студент: Мельников Игорь Владимирович % [<a href="https://vk.com/csitrovsky" class="link" display="inline-block" bg-color="white"><div><span class="option" color="dark">ссылка</span></div></a>] ~@ Версия: Beta</div></div></div></div></footer>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- ... Java Script libraries -->
+
+    <!-- ... Basic Java Script -->
+    <script type="text/javascript" src="/js/core.js"></script>
+    <script type="text/javascript" src="/js/config.js"></script>
+
+    <!-- ...Starting Java Script -->
+    <script type="text/javascript">Experimentation.init({});</script>
+
+    <!-- ...Java Script pages -->
+    <?=self::$script;?>
+
+    <!-- ... Preloader -->
+    <script type="text/javascript">
+        var _preloader = true;
+        var _timeout = 1000;
+        $(window).on('load', function () {
+            $('body').addClass('on-ready');
+        });
+    </script>
+
+</body>
+</html>
